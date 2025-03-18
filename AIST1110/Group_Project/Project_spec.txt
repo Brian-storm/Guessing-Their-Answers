@@ -95,7 +95,7 @@ Some Resources:
  http://ccmixter.org/ ; https://freesound.org/ ; https://freesfx.co.uk/ ;
  https://soundbible.com/
 
--sounds, sprites, other artwork
+-sounds, sprites, other artworkbra
  https://kenney.nl/ ; https://opengameart.org/ ; https://www.gameart2d.com/
 
 -sprites, backgrounds, tilesets
@@ -104,3 +104,4 @@ Some Resources:
 
  More artworks can be found here:
  https://inventwithpython.com/blog/2011/04/30/free-music-sound-effects-tiles-and-2d-art-to-use-in-your-games/
+
