@@ -22,7 +22,7 @@ A. Grading Criteria
             socket connections, and one of the player’s program serves as the socket
             listener. (For this feature, the difficulty and workload seem too much more, so
             we do not expect students to do it, but will not restrict doing so)
-
+    ***Consider some other functionality, e.g. multithreading
 
 B. Submission Requirements
     -Game folder (<200 MB, split into volumes if necessary)
@@ -49,7 +49,7 @@ C. Basic Implementation
     -Game scene
         -2 players (subject to change)
         -question text field
-        -progress bar of each player (note: may import third-party module)
+        -progress bar of each player (note: may import third-party module) / a loading screen for rendering
         -audience poeple (on spectator stand, subject to change)
         -scoreboard of 3 rounds displayed when one round ends
     -Result
@@ -105,3 +105,11 @@ Some Resources:
  More artworks can be found here:
  https://inventwithpython.com/blog/2011/04/30/free-music-sound-effects-tiles-and-2d-art-to-use-in-your-games/
 
+
+Accessed:
+IMG:
+Sky with clouds background, retrieved from Craftpix.net (https://craftpix.net/freebies/free-sky-with-clouds-background-pixel-art-set/)
+    -free for commericial use (license obtained)
+Ocean and clouds background, retrieved from Craftpix.net (https://craftpix.net/freebies/ocean-and-clouds-free-pixel-art-backgrounds/)
+    -free for commericial use (license obtained)
+Game_icon1, created by Coplilot on 20/03/2025
