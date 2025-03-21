@@ -1,6 +1,6 @@
 import pygame
 from Resources.colors_and_fonts import BREE_SERIF,LIGHT_GRAY, RED, WHITE
-from Sprites import Button
+from Sprites import Button, Button_Group
 from sys import exit
 
 # Some main screens
@@ -25,32 +25,31 @@ clock = pygame.time.Clock()
 # TODO: Look for resources: background.png, characters.png, ...
 title_font = pygame.font.Font(BREE_SERIF, 65)
 title_surf = title_font.render('Guessing Their Answers', True, LIGHT_GRAY, RED)
-title_rect = title_surf.get_rect(midbottom=(640, 180))
+title_rect = title_surf.get_rect(midbottom=(640, 160))
 
-play_button = Button("PLAY", button_color=LIGHT_GRAY, button_size=(250, 115), center_pos=(640, 330))
-lang_button = Button("Language", button_color=LIGHT_GRAY, button_size=(250, 115), center_pos= (640, 480))
+play_button = Button("PLAY", button_color=LIGHT_GRAY, button_size=(220, 100), center_pos=(640, 260))
+lang_button = Button("Language", button_color=LIGHT_GRAY, button_size=(220, 100), center_pos= (640, 390))
+diff_button = Button("Difficulty", button_color=LIGHT_GRAY, button_size=(220, 100), center_pos=(640, 520))
 
-# button_group = Button_Group()
-button_group = pygame.sprite.Group()
-button_group.add(play_button, lang_button)
+button_group = Button_Group()
+button_group.add(play_button, lang_button, diff_button)
 
 # For background, check Resources (1. sky&clouds 2. ocean&clouds)
 ...
 
 running = True
 while running:
-    mouse_pos = pygame.mouse.get_pos()
+    mousePos = pygame.mouse.get_pos()
+    button_group.update(mousePos, pygame.MOUSEMOTION)
+    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
             exit()
-        if event.type == pygame.MOUSEMOTION:
-            for button in button_group:
-                button.is_hovered(mouse_pos)
         if event.type == pygame.MOUSEBUTTONDOWN:
-            for button in button_group:
-                button.is_clicked(mouse_pos)
+            button_group.update(mousePos, event.type)
+
 
     # TODO: Create rectangles to place characters and texts
     # e.g. question text field, answer text field, ...
@@ -58,10 +57,8 @@ while running:
 
     screen.fill((0, 0, 0))
     screen.blit(title_surf, title_rect)
-    screen.blit(play_button.display, play_button.display_rect)
-    screen.blit(lang_button.display, lang_button.display_rect)
-    for button in button_group:
-        button.display, button.display_rect = button.surf.copy(), button.rect.copy()
+    button_group.display_button(screen)
+    button_group.return_to_normal()
         # TODO: some redudant codes here
     pygame.display.flip()
     clock.tick(30)
