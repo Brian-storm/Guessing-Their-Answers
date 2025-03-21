@@ -14,7 +14,7 @@ class Button(pygame.sprite.Sprite):
     """Button to be clicked by mouse, or tapped by keyboard"""
 
     def __init__(self, text: bool | str, button_color: str | int = RED,
-                 button_size: tuple[int, int] = (200, 100),
+                 button_size: tuple[int, int] = (220, 100),
                  *, center_pos: tuple[int, int]):
         super().__init__()
         width, height = button_size
@@ -24,11 +24,10 @@ class Button(pygame.sprite.Sprite):
         self.center = center_pos
         self.hovered = False
 
-        self.surf = pygame.Surface(self.button_size)
+        self.surf = pygame.Surface(self.button_size, pygame.SRCALPHA)
         self.surf.fill(self.button_color)
 
         # Creating text surface and blit to button
-        # TODO: may change the font size according to S/M/L settings
         if self.text is not None:
             self.text_font = pygame.font.Font(BREE_SERIF, 40)
             self.text_surf = self.text_font.render(self.text, True, RED, button_color)
@@ -57,11 +56,9 @@ class Button(pygame.sprite.Sprite):
         if self.rect.collidepoint(mousePos):
             self.display_surf.fill(WHITE)
             pygame.time.delay(50)
-        # button shines when clicked, but the animation is not good,
-        # as the rect covers extra area due to the rotozoomed surf,
-        # so more optimization are needed here
-        
-        # also, for transisiton scene, 
+        # The white fill covers the entire rect,
+        # which is bad. Optimization needed here
+        # also, for transisiton scene (not yet made), 
         # button animation should be matched
 
 

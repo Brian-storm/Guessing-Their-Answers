@@ -1,5 +1,6 @@
 import pygame
-from Resources.colors_and_fonts import BREE_SERIF,LIGHT_GRAY, RED, WHITE
+from Resources.background.load_background import load_background
+from Resources.colors_and_fonts import BREE_SERIF,LIGHT_GRAY, RED
 from Sprites import Button, Button_Group
 from sys import exit
 
@@ -13,11 +14,13 @@ from sys import exit
 
 
 pygame.init()
-screen = pygame.display.set_mode((1280, 720), pygame.SCALED)
+screen0 = pygame.display.set_mode((1280, 720), pygame.SCALED)
 # pygame.RESIZABLE allows window toggling but requires alignment adjustment
 # Decide whether to use pygame.RESIZABLE
 icon = pygame.image.load(r"Resources\icon\game_icon1.png")
 pygame.display.set_icon(icon)
+
+
 
 pygame.display.set_caption("Guessing Their Answers")
 clock = pygame.time.Clock()
@@ -55,7 +58,9 @@ while running:
     # e.g. question text field, answer text field, ...
     # OR, draw the required field using pygame.draw
 
-    screen.fill((0, 0, 0))
+    CloudFileBG = {0: "Morning", 1: "Evening", 2: "Night1", 3: "Night2"}
+    index = pygame.time.get_ticks() // 4000 % 4
+    screen = load_background(screen0, r"Resources\background\Cloud-and-Sky-craftpix-net-995711", CloudFileBG[index])
     screen.blit(title_surf, title_rect)
     button_group.display_button(screen)
     button_group.return_to_normal()

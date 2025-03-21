@@ -1,4 +1,6 @@
 1. Heaven
+
+
 Oops...
 
 You were just hit by a truck.
@@ -9,11 +11,13 @@ You were just hit by a truck.
 
 "Heaven?"
 
-"You are lucky to be chosen to compete with us"
+"We challenge you to a guessing game"
 
-"To compete WHAT?"
+"To guess WHAT?"
 
-"To see who understand humans more"
+"To guess the popular answers. Let's see who understand humans more"
+
+
 
 ---guessing game begins---
 (Will use clouds background for this one)
@@ -22,3 +26,8 @@ You were just hit by a truck.
 
 2. Millionare
 $1000 -> $5000 -> $100_000 -> $1_000_000
+
+3. Time Travellers
+You are a time traveller, who can go back and forth in time. 
+With the special ability, you decided to visit people in different eras.
+You decided to play a guessing game with people as you travel.
